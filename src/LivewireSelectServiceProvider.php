@@ -20,6 +20,10 @@ class LivewireSelectServiceProvider extends ServiceProvider
             ], 'livewire-select-views');
         }
 
+        $this->publishes([
+            __DIR__ . '/../config/config.php' => config_path('livewire-select.php'),
+        ], 'livewire-select-config');
+
         $livewireSelect = new LivewireSelect;
         Blade::directive('livewireSelectScripts', function ($options) use ($livewireSelect) {
             return $livewireSelect->js($options);
@@ -34,6 +38,6 @@ class LivewireSelectServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'livewire-select');
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'livewire-select');
     }
 }
