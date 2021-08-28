@@ -1,6 +1,6 @@
 <div>
 
-    <div>
+    <div x-init="$wire.set('value', {{ $initValueEncoded }})">
         @if(!$searchable && $shouldShow)
             @if(!$multiple)
                 @include($defaultView, [
